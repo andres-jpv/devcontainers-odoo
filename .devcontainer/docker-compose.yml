@@ -10,7 +10,7 @@ services:
     volumes:
       - ..:/workspace
       - ${ODOO_SERVER}:/workspace/odoo.19.0:ro
-      - ${ENTERPRISE_ADDONS}:/workspace/enterprise.19.0:ro
+      # - ${ENTERPRISE_ADDONS}:/workspace/enterprise.19.0:ro
       - odoo-data:/var/lib/odoo
     command: sleep infinity
     ports:
@@ -26,6 +26,7 @@ services:
     container_name: pgdb
     volumes:
       - pgdb-data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
     environment:
       - POSTGRES_PASSWORD=admin
     ports:
