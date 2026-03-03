@@ -1,7 +1,7 @@
 FROM  python:3.12-slim-bookworm AS base
 
 # Environment
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
@@ -42,7 +42,9 @@ RUN apt-get update && \
     zsh \
     lsb-release \
     rsync \
-    && apt-get autoremove -yqq
+    && apt-get autoremove -yqq \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install rtlcss
 RUN npm install -g rtlcss
@@ -67,6 +69,7 @@ RUN if [ "$TARGETARCH" = "arm64" ]; then \
     && echo "Expected wkhtmltox checksum: ${WKHTMLTOPDF_CHECKSUM}" \
     && echo "Computed wkhtmltox checksum: $(sha256sum wkhtmltox.deb | awk '{ print $1 }')" \
     && echo "${WKHTMLTOPDF_CHECKSUM} wkhtmltox.deb" | sha256sum -c - \
+    && apt-get update \
     && apt-get install -y --no-install-recommends ./wkhtmltox.deb \
     && rm -rf /var/lib/apt/lists/* wkhtmltox.deb
 
@@ -89,9 +92,6 @@ RUN apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-# Stage 2: Final Image
-FROM base
-
 # Settings virtualenv and uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 ENV UV_LINK_MODE=copy \
@@ -102,12 +102,12 @@ ENV PATH="/workspace/.venv/bin:$PATH"
 
 # Create Odoo user
 ARG USERNAME="odoo"
-ARG UID=1001
+ARG UID=1000
 ARG GID=$UID
 ARG USER_HOME="/home/$USERNAME"
 
-RUN groupadd -g 1000 $USERNAME -o \
-    && useradd -l -md $USER_HOME -s /bin/false -u 1000 -g 1000 $USERNAME \
+RUN groupadd -g $GID $USERNAME -o \
+    && useradd -l -md $USER_HOME -s /bin/zsh -u $UID -g $GID $USERNAME \
     && mkdir -p /var/lib/odoo \
     && chown -R $USERNAME /var/lib/odoo \
     && sync
