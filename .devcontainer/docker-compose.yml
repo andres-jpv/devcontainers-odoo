@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   odoo18-demo:
     container_name: odoo18-demo
@@ -12,6 +10,8 @@ services:
       - ${ODOO_SERVER}:/workspace/odoo.18.0:ro
       # - ${ENTERPRISE_ADDONS}:/workspace/enterprise.18.0:ro
       - odoo18-data:/var/lib/odoo
+    depends_on:
+      - pgdb
     command: sleep infinity
     ports:
       - "8169:8069"
