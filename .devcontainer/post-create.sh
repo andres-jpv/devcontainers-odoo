@@ -6,7 +6,7 @@ cd /workspace
 uv sync
 
 echo "==> Installing Odoo requirements..."
-uv pip install -r /workspace/odoo.19.0/requirements.txt
+uv pip install -r /workspace/odoo.18.0/requirements.txt
 
 echo "==> Setup complete! Start Odoo with:"
-echo "    python odoo.19.0/odoo-bin -c odoo.conf"
+echo "    python odoo.18.0/odoo-bin -c odoo.conf"

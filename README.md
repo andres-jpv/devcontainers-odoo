@@ -1,4 +1,4 @@
-# Odoo 19 Devcontainers
+# Odoo 18 Devcontainers
 
 [![Watch the video](https://github.com/mjavint/devcontainers-odoo/blob/main/img/miniatura.png?raw=true)](https://youtu.be/I4vswyVg2K0)
 
@@ -24,7 +24,7 @@ source .venv/bin/activate
 3. Instalar dependencias de odoo
 
 ```bash
-uv pip install -r odoo.19.0/requirements.txt
+uv pip install -r odoo.18.0/requirements.txt
 ```
 
 4. Crear el role `odoo` en la base de datos.
@@ -34,13 +34,13 @@ uv pip install -r odoo.19.0/requirements.txt
 **Desde la terminal del host (fuera del devcontainer):**
 
 ```bash
-docker exec -it pgdb psql -U postgres -c "CREATE ROLE odoo WITH LOGIN PASSWORD 'odoo' CREATEDB;"
+docker exec -it pgdb18 psql -U postgres -c "CREATE ROLE odoo WITH LOGIN PASSWORD 'odoo' CREATEDB;"
 ```
 
 **Desde la terminal del devcontainer:**
 
 ```bash
-psql -h pgdb -U postgres -c "CREATE ROLE odoo WITH LOGIN PASSWORD 'odoo' CREATEDB;"
+psql -h pgdb18 -U postgres -c "CREATE ROLE odoo WITH LOGIN PASSWORD 'odoo' CREATEDB;"
 ```
 
 Cuando se solicite la contraseña de `postgres`, ingresa: `admin`
@@ -48,15 +48,15 @@ Cuando se solicite la contraseña de `postgres`, ingresa: `admin`
 **Verificar que el role fue creado:**
 
 ```bash
-docker exec -it pgdb psql -U postgres -c "\du odoo"
+docker exec -it pgdb18 psql -U postgres -c "\du odoo"
 ```
 
-También puedes usar el servicio `pgadmin` disponible en `http://localhost:8085` (usuario: `admin@example.com`, contraseña: `admin`).
+También puedes usar el servicio `pgadmin` disponible en `http://localhost:8185` (usuario: `admin@example.com`, contraseña: `admin`).
 
 5. Iniciar el servidor de odoo
 
 ```bash
-python odoo.19.0/odoo-bin -c odoo.conf
+python odoo.18.0/odoo-bin -c odoo.conf
 ```
 
 ## Debugging
@@ -75,7 +75,7 @@ El proyecto viene preconfigurado con `debugpy` y `pydevd-odoo` para depurar Odoo
 Si prefieres lanzar Odoo manualmente con debugpy y luego conectarte:
 
 ```bash
-python -m debugpy --listen 0.0.0.0:5678 --wait-for-client odoo.19.0/odoo-bin -c odoo.conf
+python -m debugpy --listen 0.0.0.0:5678 --wait-for-client odoo.18.0/odoo-bin -c odoo.conf
 ```
 
 Luego selecciona **"Odoo: Attach"** en el panel de Debug y presiona **F5**.

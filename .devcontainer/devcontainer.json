@@ -1,7 +1,7 @@
 {
-  "name": "odoo19",
+  "name": "odoo18",
   "dockerComposeFile": "docker-compose.yml",
-  "service": "odoo19-demo",
+  "service": "odoo18-demo",
   "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {

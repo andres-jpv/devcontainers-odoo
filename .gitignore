@@ -10,5 +10,5 @@ wheels/
 .venv
 .vscode
 uv.lock
-enterprise.19.0
-odoo.19.0
+enterprise.18.0
+odoo.18.0
