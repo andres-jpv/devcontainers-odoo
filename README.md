@@ -59,6 +59,29 @@ También puedes usar el servicio `pgadmin` disponible en `http://localhost:8085`
 python odoo.19.0/odoo-bin -c odoo.conf
 ```
 
+## Debugging
+
+El proyecto viene preconfigurado con `debugpy` y `pydevd-odoo` para depurar Odoo desde VS Code.
+
+### Opción 1: Lanzar con F5 (Recomendado)
+
+1. Abre el devcontainer en VS Code
+2. Selecciona la configuración **"Odoo: Launch"** en el panel de Debug (Ctrl+Shift+D)
+3. Presiona **F5** para iniciar Odoo en modo debug
+4. Coloca breakpoints en cualquier archivo `.py` y se detendrá automáticamente
+
+### Opción 2: Attach a un proceso existente
+
+Si prefieres lanzar Odoo manualmente con debugpy y luego conectarte:
+
+```bash
+python -m debugpy --listen 0.0.0.0:5678 --wait-for-client odoo.19.0/odoo-bin -c odoo.conf
+```
+
+Luego selecciona **"Odoo: Attach"** en el panel de Debug y presiona **F5**.
+
+> **Nota:** `odoo.conf` ya está configurado con `workers = 0` y `limit_time_real = 0`, lo cual es necesario para que el debugging funcione correctamente.
+
 ## Enlaces útiles
 
 - [Docker Desktop](https://docs.docker.com/get-started/get-docker/)
