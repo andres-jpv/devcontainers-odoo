@@ -998,7 +998,7 @@ wheels = [
 ]
 
 [[package]]
-name = "odoo19"
+name = "odoo18"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

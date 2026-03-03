@@ -40,7 +40,7 @@ docker exec -it pgdb18 psql -U postgres -c "CREATE ROLE odoo WITH LOGIN PASSWORD
 **Desde la terminal del devcontainer:**
 
 ```bash
-psql -h pgdb18 -U postgres -c "CREATE ROLE odoo WITH LOGIN PASSWORD 'odoo' CREATEDB;"
+psql -h pgdb -U postgres -c "CREATE ROLE odoo WITH LOGIN PASSWORD 'odoo' CREATEDB;"
 ```
 
 Cuando se solicite la contraseña de `postgres`, ingresa: `admin`
