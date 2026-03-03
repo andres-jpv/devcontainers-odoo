@@ -40,7 +40,7 @@
       "type": "volume"
     },
     {
-      "source": "${localEnv:HOME}/.ssh",
+      "source": "${localEnv:USERPROFILE}/.ssh",
       "target": "/home/odoo/.ssh",
       "type": "bind"
     }
