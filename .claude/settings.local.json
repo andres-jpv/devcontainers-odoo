@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git ls-remote --heads https://github.com/odoo/enterprise.git 18.0)",
+      "Bash(echo \"Exit code: $?\")",
+      "Bash(curl -I https://github.com/odoo/enterprise.git)",
+      "Bash(git ls-remote --heads https://github.com/odoo/odoo.git 18.0)"
+    ]
+  }
+}
