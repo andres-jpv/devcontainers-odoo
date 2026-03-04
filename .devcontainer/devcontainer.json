@@ -2,7 +2,7 @@
   "name": "odoo18",
   "dockerComposeFile": "docker-compose.yml",
   "service": "odoo18-demo",
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/workspace/odoo.code-workspace",
   "customizations": {
     "vscode": {
       "extensions": [
