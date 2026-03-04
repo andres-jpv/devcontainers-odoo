@@ -1,0 +1,10 @@
+{
+  "folders": [
+    { "path": "." },
+    { "path": "custom-addons/proyecto-libreria" }
+  ],
+  "settings": {
+    "xml.symbols.enabled": false,
+    "python.languageServer": "None"
+  }
+}
