@@ -130,6 +130,20 @@ wheels = [
 ]
 
 [[package]]
+name = "build"
+version = "1.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama", marker = "os_name == 'nt'" },
+    { name = "packaging" },
+    { name = "pyproject-hooks" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/42/18/94eaffda7b329535d91f00fe605ab1f1e5cd68b2074d03f255c7d250687d/build-1.4.0.tar.gz", hash = "sha256:f1b91b925aa322be454f8330c6fb48b465da993d1e7e7e6fa35027ec49f3c936", size = 50054, upload-time = "2026-01-08T16:41:47.696Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c5/0d/84a4380f930db0010168e0aa7b7a8fed9ba1835a8fbb1472bc6d0201d529/build-1.4.0-py3-none-any.whl", hash = "sha256:6a07c1b8eb6f2b311b96fcbdbce5dab5fe637ffda0fd83c9cac622e927501596", size = 24141, upload-time = "2026-01-08T16:41:46.453Z" },
+]
+
+[[package]]
 name = "cachecontrol"
 version = "0.14.3"
 source = { registry = "https://pypi.org/simple" }
@@ -993,6 +1007,18 @@ wheels = [
 ]
 
 [[package]]
+name = "inotify"
+version = "0.2.12"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "build" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f7/e1/9eb0047d6808ab1bb8930ac4d508f663fd94cfaea4bc905f62c199b64872/inotify-0.2.12.tar.gz", hash = "sha256:9aee407f92c7d51a2ce50f3b78291a9094e334e34bd68e82bf60020795fa2c94", size = 21818, upload-time = "2025-07-07T07:09:08.799Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c5/b9/7c83fb4b6245eb2e4a2927a512356ec015d13f105c326497dc62f4b22033/inotify-0.2.12-py2.py3-none-any.whl", hash = "sha256:e4f1c8ec7ba5ec2a1a7fce48c0c917234af9d756495ebae7ffa00e41a305ab90", size = 20405, upload-time = "2025-07-07T07:09:07.591Z" },
+]
+
+[[package]]
 name = "invoke"
 version = "2.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1313,6 +1339,7 @@ dependencies = [
     { name = "greenlet", version = "3.0.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.13' and sys_platform != 'win32'" },
     { name = "greenlet", version = "3.1.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.13' and sys_platform != 'win32'" },
     { name = "idna" },
+    { name = "inotify" },
     { name = "invoke" },
     { name = "jinja2" },
     { name = "libsass" },
@@ -1405,6 +1432,7 @@ requires-dist = [
     { name = "greenlet", marker = "python_full_version >= '3.13' and sys_platform != 'win32'", specifier = "==3.1.1" },
     { name = "idna", marker = "python_full_version < '3.12'", specifier = "==2.10" },
     { name = "idna", marker = "python_full_version >= '3.12'", specifier = "==3.6" },
+    { name = "inotify" },
     { name = "invoke" },
     { name = "jinja2", marker = "python_full_version < '3.11'", specifier = "==3.0.3" },
     { name = "jinja2", marker = "python_full_version >= '3.11'", specifier = "==3.1.2" },
@@ -1983,6 +2011,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/93/cd/112f092ec27cca83e0516de0a3368dbd9128c187fb6b52aaaa7cde39c96d/pypng-0.20220715.0.tar.gz", hash = "sha256:739c433ba96f078315de54c0db975aee537cbc3e1d0ae4ed9aab0ca1e427e2c1", size = 128992, upload-time = "2022-07-15T14:11:05.301Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/3e/b9/3766cc361d93edb2ce81e2e1f87dd98f314d7d513877a342d31b30741680/pypng-0.20220715.0-py3-none-any.whl", hash = "sha256:4a43e969b8f5aaafb2a415536c1a8ec7e341cd6a3f957fd5b5f32a4cfeed902c", size = 58057, upload-time = "2022-07-15T14:11:03.713Z" },
+]
+
+[[package]]
+name = "pyproject-hooks"
+version = "1.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e7/82/28175b2414effca1cdac8dc99f76d660e7a4fb0ceefa4b4ab8f5f6742925/pyproject_hooks-1.2.0.tar.gz", hash = "sha256:1e859bd5c40fae9448642dd871adf459e5e2084186e8d2c2a79a824c970da1f8", size = 19228, upload-time = "2024-09-29T09:24:13.293Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bd/24/12818598c362d7f300f18e74db45963dbcb85150324092410c8b49405e42/pyproject_hooks-1.2.0-py3-none-any.whl", hash = "sha256:9e5c6bfa8dcc30091c74b0cf803c81fdd29d94f01992a7707bc97babb1141913", size = 10216, upload-time = "2024-09-29T09:24:11.978Z" },
 ]
 
 [[package]]

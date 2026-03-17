@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/odoo/**)",
+      "Bash(git -C /workspace status --short)",
+      "Bash(git -C /workspace/custom-addons/proyecto-libreria status --short)",
+      "Bash(git -C /workspace/custom-addons/proyecto-libreria rm --cached -r --ignore-unmatch library/__pycache__ library/models/__pycache__ library/wizard/__pycache__)",
+      "Bash(pg_isready -h localhost)",
+      "Bash(pg_isready -h 127.0.0.1)",
+      "Bash(systemctl status postgresql)",
+      "Bash(service postgresql status)",
+      "Read(//etc/**)",
+      "Bash(ls /workspace/*.yml /workspace/*.yaml)",
+      "Bash(getent hosts pgdb)",
+      "Bash(nc -zv pgdb 5432)",
+      "Bash(nc -zv localhost 5432)",
+      "Bash(python3 -c \"import socket; print\\(socket.gethostbyname\\(''pgdb''\\)\\)\")",
+      "Bash(python3 -c \"import socket; s=socket.socket\\(\\); s.settimeout\\(2\\); print\\(s.connect_ex\\(\\(''127.0.0.1'', 5432\\)\\)\\)\")",
+      "Read(//var/lib/odoo/**)",
+      "Read(//tmp/**)",
+      "Bash(unzip -l /workspace/backup/pe-nextpro-com-v19_04032026.zip)",
+      "Bash(python3 -c \"import zipfile; z = zipfile.ZipFile\\(''/workspace/backup/pe-nextpro-com-v19_04032026.zip''\\); print\\(''\\\\n''.join\\(z.namelist\\(\\)[:30]\\)\\)\")",
+      "Bash(chown -R odoo:odoo /var/lib/odoo/filestore/backup_prueba/)",
+      "Bash(python3 -:*)",
+      "Bash(python3 -c \":*)",
+      "Bash(pip show inotify)",
+      "Bash(uv sync)",
+      "Bash(/workspace/.venv/bin/python odoo.19.0/odoo-bin -c odoo.conf -d backup_prueba -u ai --stop-after-init)",
+      "Bash(docker context:*)",
+      "Bash(powershell.exe -Command \"Get-Process *docker* 2>$null | Select-Object Name, Id, Path\")",
+      "Bash(powershell.exe -Command \"Test-Path ''C:\\\\Program Files\\\\Docker\\\\Docker\\\\Docker Desktop.exe''\")",
+      "Bash(git clone https://github.com/andres-jpv/portafolio-web-odoo.git /workspace/portafolio-web-odoo)",
+      "Bash(pkill -f odoo-bin.*portafolio_web)",
+      "Bash(/workspace/.venv/bin/python /workspace/odoo.19.0/odoo-bin -c /workspace/odoo.conf -d odoo --stop-after-init -i portafolio_web --log-level=warn)"
+    ],
+    "additionalDirectories": [
+      "c:\\workspace\\enterprise.19.0"
+    ]
+  }
+}

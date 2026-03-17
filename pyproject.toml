@@ -16,6 +16,7 @@ dependencies = [
     "git-aggregator",
     "copier",
     "pre-commit",
+    "inotify",
     "debugpy",
     "pydevd-odoo",
     "pylint_odoo",
