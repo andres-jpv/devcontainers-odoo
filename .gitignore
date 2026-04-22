@@ -13,4 +13,20 @@ wheels/
 uv.lock
 enterprise.19.0
 odoo.19.0
+documentation.19.0
 /custom-addons
+
+# Claude Code local (per-machine) settings
+.claude/settings.local.json
+
+# Workspaces locales por maquina
+ubuntu.code-workspace
+
+# Config de Odoo local (contiene credenciales de dev)
+odoo.conf
+
+# Backups de base de datos
+backup/
+
+# Variables de entorno del devcontainer
+.devcontainer/.env
